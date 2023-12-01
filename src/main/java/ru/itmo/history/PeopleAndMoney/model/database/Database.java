@@ -1,10 +1,9 @@
 package ru.itmo.history.PeopleAndMoney.model.database;
 
-import ru.itmo.history.PeopleAndMoney.model.domain.Job;
-import ru.itmo.history.PeopleAndMoney.model.domain.Period;
-import ru.itmo.history.PeopleAndMoney.model.domain.Product;
+import ru.itmo.history.PeopleAndMoney.domain.Job;
+import ru.itmo.history.PeopleAndMoney.domain.Period;
+import ru.itmo.history.PeopleAndMoney.domain.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
