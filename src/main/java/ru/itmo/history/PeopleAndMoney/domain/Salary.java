@@ -1,7 +1,7 @@
 package ru.itmo.history.PeopleAndMoney.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 
 @Entity
@@ -19,6 +19,7 @@ public class Salary {
 	@JoinColumn(name = "job_id", nullable = false)
 	private Job job;
 
+	@Min(0)
 	private double salary;
 
 }

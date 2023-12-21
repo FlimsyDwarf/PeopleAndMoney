@@ -20,6 +20,6 @@ public class Product {
 	private String name;
 
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-	private List<Price> priceList;
+	private List<Price> prices;
 }
 

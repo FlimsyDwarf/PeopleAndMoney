@@ -1,9 +1,6 @@
 package ru.itmo.history.PeopleAndMoney.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -19,6 +16,7 @@ public class Price {
 	//TODO: ManyToOne
 	@NotNull
 	@ManyToOne
+	@JoinColumn(name = "period_id", nullable = false)
 	private Period period;
 
 	private double price;

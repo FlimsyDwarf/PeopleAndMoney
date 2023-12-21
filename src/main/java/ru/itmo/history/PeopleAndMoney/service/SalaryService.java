@@ -16,6 +16,6 @@ public class SalaryService {
     }
 
     public List<Salary> findAllByPeriod(Period period) {
-        return findAllByPeriod(period);
+        return salaryRepository.findAllByPeriod(period);
     }
 }
