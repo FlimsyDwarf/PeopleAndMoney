@@ -1,5 +1,6 @@
 package ru.itmo.history.PeopleAndMoney.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,6 +15,7 @@ public class Job {
 	private String name;
 
 	//TODO: @OneToMany
+	@JsonIgnore
 	@OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
 	private List<Salary> salaries;
 

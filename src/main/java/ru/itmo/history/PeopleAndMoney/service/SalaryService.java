@@ -18,4 +18,8 @@ public class SalaryService {
     public List<Salary> findAllByPeriod(Period period) {
         return salaryRepository.findAllByPeriod(period);
     }
+
+    public List<Salary> findAllByPeriodId(long id) {
+        return salaryRepository.findAllByPeriodId(id);
+    }
 }

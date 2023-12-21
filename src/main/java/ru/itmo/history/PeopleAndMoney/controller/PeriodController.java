@@ -32,33 +32,36 @@ public class PeriodController {
     public List<Period> getPeriods() {
         return periodService.findAll();
     }
-
-    @GetMapping("period")
+    @GetMapping("period/byYear")
     public Period getPeriod(@RequestParam int year) {
         return periodService.findByYear(year);
     }
-
     @GetMapping("period/byId")
     public Period getPeriodById(@RequestParam long id) {
         return periodService.findById(id);
     }
 
-    @GetMapping("salaries")
+    @GetMapping("salary/all/byPeriodId")
+    public List<Salary> getSalariesByPeriodId(@RequestParam long id) {
+        return salaryService.findAllByPeriodId(id);
+    }
+
+    @GetMapping("salary/all/byPeriod")
     public List<Salary> getSalariesByPeriod(@Valid @RequestParam Period period) {
         return salaryService.findAllByPeriod(period);
     }
 
-    @GetMapping("prices")
+    @GetMapping("price/all/byPeriod")
     public List<Price> getPricesByPeriod(@Valid @RequestParam Period period) {
         return priceService.findPricesByPeriod(period);
     }
 
-    @GetMapping("prices/byId")
+    @GetMapping("price/byPeriodId")
     public List<Price> getPricesByPeriod(@RequestParam long id) {
         return priceService.findPricesByPeriodId(id);
     }
 
-    @GetMapping("jobs")
+    @GetMapping("job/all")
     public List<Job> getJobs() {
         return jobService.findAll();
     }
