@@ -15,6 +15,6 @@ public class Job {
 
 	//TODO: @OneToMany
 	@OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
-	private List<Salary> salaryList;
+	private List<Salary> salaries;
 
 }

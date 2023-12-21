@@ -3,9 +3,7 @@ package ru.itmo.history.PeopleAndMoney.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Entity
@@ -14,21 +12,27 @@ public class Period {
 	@Id
 	@GeneratedValue
 	private long id;
-	@NotNull
-	@NotEmpty
+
+	@NotBlank
 	private String name;
-	//private String leader;
-	@NotEmpty
+
 	@NotBlank
 	private String description;
+
 	@NotNull
+	@Min(1921)
+	@Max(1991)
 	private int start;
+
 	@NotNull
+	@Min(1921)
+	@Max(1991)
 	private int end;
 	/**
 	 *	старые_деньги * коэф = новые_деньги
 	 */
 	@NotNull
+	@Min(0)
 	private double coef;
 
 }
