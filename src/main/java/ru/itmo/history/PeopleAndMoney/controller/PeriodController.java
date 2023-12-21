@@ -53,6 +53,11 @@ public class PeriodController {
         return priceService.findPricesByPeriod(period);
     }
 
+    @GetMapping("prices/byId")
+    public List<Price> getPricesByPeriod(@RequestParam long id) {
+        return priceService.findPricesByPeriodId(id);
+    }
+
     @GetMapping("jobs")
     public List<Job> getJobs() {
         return jobService.findAll();

@@ -10,6 +10,7 @@ public class Price {
 	@Id
 	@GeneratedValue
 	private long id;
+
 	@ManyToOne
 	private Product product;
 

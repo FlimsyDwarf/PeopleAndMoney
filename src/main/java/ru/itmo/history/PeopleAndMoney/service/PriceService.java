@@ -19,4 +19,8 @@ public class PriceService {
     public List<Price> findPricesByPeriod(Period period) {
         return priceRepository.findAllByPeriod(period);
     }
+
+    public List<Price> findPricesByPeriodId(long id) {
+        return priceRepository.findAllByPeriodId(id);
+    }
 }
