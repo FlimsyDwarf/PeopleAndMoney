@@ -8,9 +8,12 @@
                 item-title="name"
                 item-value="id"
                 variant="outlined"
-            ></v-select>
+            >
+            </v-select>
             <v-container v-if="selectedPeriod">
                 {{ selectedPeriod.description }}
+                <br>
+                <b>Года: {{ selectedPeriod.start }} - {{ selectedPeriod.end }}</b>
             </v-container>
         </v-container>
 
@@ -54,7 +57,7 @@ export default {
                     const pattern = /^[0-9]*$/
                     return pattern.test(value) || 'Это не число'
                 },
-                value => (value || '').length <= 9 || 'Иди нахуй, буржуй',
+                value => (value || '').length <= 9 || 'Число слишком большое',
                 value => value > 0 || ''
             ],
             numberIsValid: false

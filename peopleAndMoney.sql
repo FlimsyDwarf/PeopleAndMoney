@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Дек 21 2023 г., 21:15
--- Версия сервера: 10.4.28-MariaDB
--- Версия PHP: 8.2.4
+-- Хост: 127.0.0.1
+-- Время создания: Дек 23 2023 г., 06:38
+-- Версия сервера: 10.4.32-MariaDB
+-- Версия PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `peopleAndMoney`
+-- База данных: `peopleandmoney`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,7 @@ INSERT INTO `job` (`id`, `name`) VALUES
 (1, 'учитель'),
 (2, 'разнорабочий'),
 (3, 'инженер'),
-(4, 'жкх');
+(4, 'работник ЖКХ');
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,7 @@ CREATE TABLE `job_seq` (
   `cache_size` bigint(21) UNSIGNED NOT NULL,
   `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
   `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `job_seq`
@@ -75,7 +75,7 @@ INSERT INTO `job_seq` (`next_not_cached_value`, `minimum_value`, `maximum_value`
 CREATE TABLE `period` (
   `id` bigint(20) NOT NULL,
   `coef` double NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
   `end` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `start` int(11) NOT NULL
@@ -86,13 +86,13 @@ CREATE TABLE `period` (
 --
 
 INSERT INTO `period` (`id`, `coef`, `description`, `end`, `name`, `start`) VALUES
-(1, 1360, 'тут описание', 1931, 'НЭП', 1921),
-(2, 250.78, 'тут описание', 1941, 'Довоенное время', 1932),
-(3, 116.47, 'тут описание', 1953, 'Послевоенное время ', 1945),
-(4, 90.09, 'тут описание', 1960, 'Дореформенное время', 1954),
-(5, 861, 'тут описание', 1964, 'Послереформенное время', 1961),
-(6, 538.46, 'тут описание', 1984, 'Застой', 1965),
-(7, 322.58, 'тут описание', 1991, 'Перестройка', 1985);
+(1, 1360, 'НЭП был ответом на экономический кризис после Гражданской войны. Разрешили частную торговлю и дали возможность частным предпринимателям участвовать в экономике. Цены формировались на основе спроса и предложения на рынке.', 1931, 'НЭП', 1921),
+(2, 250.78, 'Перед Второй мировой войной экономика в СССР сталкивалась с множеством вызовов. Государство направляло ресурсы на подготовку к войне, устанавливая контроль над ценами на товары, необходимые для военных целей. ', 1941, 'Довоенное время', 1932),
+(3, 116.47, 'После Второй мировой войны в стране наступило время восстановления. В этот период государство активно контролировало цены, регулировало спрос и предложение на рынке.', 1953, 'Послевоенное время ', 1945),
+(4, 90.09, 'Перед началом периода реформ было падение эффективности плановой экономики: устаревшие методы управления привели к дисбалансу в экономике. Также отсутствие современных технологий и инноваций ограничивало производство и влияло на ценовую политику.', 1960, 'Дореформенное время', 1954),
+(5, 861, 'В послереформенный период в экономике СССР происходил выраженный сдвиг в сторону интенсивных факторов экономического роста. Основным фактором роста было повышение производительности общественного труда и экономии живого труда, то есть уменьшалась роль основного экстенсивного фактора — увеличения числа занятых.', 1964, 'Послереформенное время', 1961),
+(6, 538.46, 'Это время характеризовалось стагнацией в экономике. Распространение бюрократии и коррупции в системе управления привело к неэффективности и искажению цен.', 1984, 'Застой', 1965),
+(7, 322.58, 'Перестройка призвана была реформировать экономику. Либерализация в экономической политике стимулировали свободу ценообразования и частную инициативу.', 1991, 'Перестройка', 1985);
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,7 @@ CREATE TABLE `period_seq` (
   `cache_size` bigint(21) UNSIGNED NOT NULL,
   `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
   `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `period_seq`
@@ -232,7 +232,7 @@ CREATE TABLE `price_seq` (
   `cache_size` bigint(21) UNSIGNED NOT NULL,
   `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
   `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `price_seq`
@@ -296,7 +296,7 @@ CREATE TABLE `product_seq` (
   `cache_size` bigint(21) UNSIGNED NOT NULL,
   `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
   `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `product_seq`
@@ -367,7 +367,7 @@ CREATE TABLE `salary_seq` (
   `cache_size` bigint(21) UNSIGNED NOT NULL,
   `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
   `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `salary_seq`

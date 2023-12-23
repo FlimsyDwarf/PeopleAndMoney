@@ -15,13 +15,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class PeriodController {
+public class Controller {
     private final PeriodService periodService;
     private final SalaryService salaryService;
     private final JobService jobService;
     private final PriceService priceService;
 
-    public PeriodController(PeriodService periodService, SalaryService salaryService, JobService jobService, PriceService priceService) {
+    public Controller(PeriodService periodService, SalaryService salaryService, JobService jobService, PriceService priceService) {
         this.periodService = periodService;
         this.salaryService = salaryService;
         this.jobService = jobService;
